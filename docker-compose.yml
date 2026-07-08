@@ -1,0 +1,28 @@
+services:
+  # Backend
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safe-roads-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./accidents.db:/app/accidents.db
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: safe-roads-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped

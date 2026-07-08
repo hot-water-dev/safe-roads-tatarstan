@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+*.egg-info/
+
+node_modules/
+dist/
+build/
+
+.vscode/
+.idea/
+*.swp
+
+.git/
+.gitignore
+
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# accidents.db
+
+*.log
